@@ -1,0 +1,7 @@
+﻿--Bugs--
+
+* Only replies to the first comment in a thread
+
+--Improvements--
+
+--ToDo--

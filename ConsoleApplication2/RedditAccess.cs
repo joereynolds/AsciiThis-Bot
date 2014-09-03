@@ -18,7 +18,8 @@ namespace ConsoleApplication2
 
             try
             {
-                var user = reddit.LogIn("AsciiThis", "definitelynotthepassword");
+                var user = reddit.LogIn("AsciiThis", "thisisjustapassword");
+                Console.WriteLine("Logged in successfully");
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -28,17 +29,22 @@ namespace ConsoleApplication2
 
             foreach (var post in subreddit.New.Take(25))
             {
-                foreach (var comment in post.Comments)
+                try
                 {
-                    if (comment.Body.Contains("hello ascii!"))
+                    foreach (var comment in post.Comments)
                     {
-                        comment.Reply("Hello!");
+                        if (comment.Body.Contains("hello ascii!"))
+                        {
+                            comment.Reply("Hello!");
+                            Console.WriteLine("Replied to message");
+                        }
                     }
                 }
-
-
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No more comments to reply to"); //I think that's what the exception means...(???)
+                }
             }
-
         }
     }
 }
