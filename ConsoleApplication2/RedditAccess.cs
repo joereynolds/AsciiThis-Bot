@@ -12,6 +12,7 @@ namespace ConsoleApplication2
     {
 
         private Reddit reddit = new Reddit();
+        private List<string> commentIds = new List<string>();
 
         /// <summary>
         /// Logs a user in and then returns True if 
@@ -40,7 +41,7 @@ namespace ConsoleApplication2
         /// 
         public void ListenForPrompt()
         {
-            if (!HasLoggedIn("AsciiThis", "stillnotmypassword"))
+            if (!HasLoggedIn("AsciiThis", "ppp"))
             {
                 return;
             }
@@ -57,13 +58,13 @@ namespace ConsoleApplication2
                     foreach (var comment in post.Comments)
                     {
                         Console.WriteLine("comment body: {0}", comment.Body);
-                        if (comment.Body.Contains("hello ascii!"))
+                        if (!commentIds.Contains(comment.Id) && comment.Body.Contains("hello ascii!"))
                         {
-                            Thread.Sleep(60000);
+                            commentIds.Add(comment.Id);
                             comment.Reply("Hello!");
                             Console.WriteLine("    Replied to message");
+                            Thread.Sleep(600000);
                         }
-
                     }
                 }
                 catch (Exception ex)
@@ -71,7 +72,6 @@ namespace ConsoleApplication2
                     Console.WriteLine("exception: {0}", ex.Message);
                 }
             }
-
         }
     }
 }

@@ -47,7 +47,6 @@ namespace ConsoleApplication2
             return average;
         }
 
-
         /// <summary>
         /// Saves an image from a specified URL
         /// </summary>

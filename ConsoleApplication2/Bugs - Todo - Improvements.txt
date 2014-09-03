@@ -1,8 +1,8 @@
 ﻿--Bugs--
-
-* Only replies to the first comment in a thread - This is because new users cannot post comments very quickly and helps reduce spam
-Sleep the bot for a few minutes/seconds and continue.
+* Add the comment id to an array so that it can't be commented on more than once
 
 --Improvements--
 
 --ToDo--
+
+* Document some of that redditsharp code, it's pretty vague at times
