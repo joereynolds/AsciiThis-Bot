@@ -4,3 +4,9 @@ C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\bin\
 C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\bin\Debug\ConsoleApplication2.pdb
 C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
 C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb
+C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\bin\Debug\RedditSharp.dll
+C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Joe Reynolds\Desktop\Learn\ConsoleApplication2\ConsoleApplication2\bin\Debug\Newtonsoft.Json.xml

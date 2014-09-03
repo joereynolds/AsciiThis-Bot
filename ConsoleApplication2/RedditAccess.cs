@@ -12,10 +12,18 @@ namespace ConsoleApplication2
         /// Waits until a certain sentence is posted
         /// and then will reply with a message
         /// </summary>
-        void ListenForPrompt()
+        public void ListenForPrompt()
         {
-            var reddit = new RedditSharp.Reddit;
-            var user = reddit.LogIn("AsciiThis","password");
+            var reddit = new RedditSharp.Reddit();
+
+            try
+            {
+                var user = reddit.LogIn("AsciiThis", "thisisjustapassword");
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             var subreddit = reddit.GetSubreddit("/r/test");
 
             foreach (var post in subreddit.New.Take(25))

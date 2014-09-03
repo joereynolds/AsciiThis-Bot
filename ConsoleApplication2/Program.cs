@@ -19,18 +19,22 @@ namespace ConsoleApplication2
     {
         Bitmap image = new Bitmap("C:/users/joe reynolds/desktop/test1.jpg");
         Bitmap AsciiImage = new Bitmap(400, 400);
-        
+
         static void Main(string[] args)
         {
             ImageProcessor im = new ImageProcessor();
             ImgurAccess imgur = new ImgurAccess();
-          
-            Console.WriteLine(im.AverageRgb(84, 209));
-            im.DrawAsciiImage();
-            
-            im.AsciiImage.Save("C:/users/joe reynolds/desktop/result.bmp");
-            Process.Start(imgur.UploadImage("SomeImage"));
-            Console.ReadKey();
+            RedditAccess reddit = new RedditAccess();
+
+            //im.DrawAsciiImage();
+            //im.AsciiImage.Save("C:/users/joe reynolds/desktop/result.bmp");
+            //Process.Start(imgur.UploadImage("SomeImage"));
+
+            while (true)
+            {
+
+                reddit.ListenForPrompt();
+            }
         }
 
         /// <summary>
