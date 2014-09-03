@@ -18,7 +18,7 @@ namespace ConsoleApplication2
 
             try
             {
-                var user = reddit.LogIn("AsciiThis", "thisisjustapassword");
+                var user = reddit.LogIn("AsciiThis", "definitelynotthepassword");
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -28,10 +28,14 @@ namespace ConsoleApplication2
 
             foreach (var post in subreddit.New.Take(25))
             {
-                if (post.SelfText.Contains("hello ascii!"))
+                foreach (var comment in post.Comments)
                 {
-                    var comment = post.Comment("Hello!");
+                    if (comment.Body.Contains("hello ascii!"))
+                    {
+                        comment.Reply("Hello!");
+                    }
                 }
+
 
             }
 
