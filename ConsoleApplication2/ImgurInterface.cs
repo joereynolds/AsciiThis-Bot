@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 
 
 /* ImgurInterface should be able to do the following at very least;
- * Log-in
  * Upload an image
  * Obtain the link for an image 
  * Return an image for use in other classes
@@ -22,7 +22,6 @@ namespace ConsoleApplication2
         string clientId = "CLIENTID";
         string clientSecret = "CLIENTSECRET";
 
-
         void Login()
         {
 
@@ -32,23 +31,30 @@ namespace ConsoleApplication2
         /// Uploads an image to Imgur
         /// </summary>
         /// <param name="imagePath"> The filepath for your image</param>
-        void UploadImage(string imagePath)
+        public string UploadImage(string imagePath)
         {
+            WebClient wc = new WebClient();
 
-            using (var w = new WebClient())
+            wc.Headers.Add("Authorization", "Client-ID " + clientId);
+
+            NameValueCollection Keys = new NameValueCollection();
+
+            try
             {
-                var values = new NameValueCollection
-                {
-                    { "key", clientId },
-                    { "image", Convert.ToBase64String(File.ReadAllBytes(@"c:/users/joe reynolds/desktop/result.bmp")) }
-                };
+                Keys.Add("image", Convert.ToBase64String(File.ReadAllBytes(imagePath)));
+                byte[] responseArray = wc.UploadValues("https://api.imgur.com/3/image", Keys);
 
-                byte[] response = w.UploadValues("http://imgur.com/api/upload.xml", values);
-
-                //Console.WriteLine(XDocument.Load(new MemoryStream(response)));
+                dynamic result = Encoding.ASCII.GetString(responseArray);
+                Regex reg = new Regex("link\":\"(.*?)\"");
+                Match match = reg.Match(result);
+                string url = match.ToString().Replace("link\":\"", "").Replace("\"", "").Replace("\\/", "/");
+                return url;
+            } catch (Exception ex){
+                Console.WriteLine(ex.Message);
             }
-
+                return "Failed";
         }
+
 
         /// <summary>
         /// Returns True if a user is logged in to Imgur

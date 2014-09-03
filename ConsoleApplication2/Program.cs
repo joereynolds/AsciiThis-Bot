@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-
+using System.Net;
+using System.Diagnostics;
 
 /* To Do
  * Use a switch statement instead of a long if-else chain
@@ -19,16 +20,18 @@ namespace ConsoleApplication2
     {
         Bitmap image = new Bitmap("C:/users/joe reynolds/desktop/test1.jpg");
         Bitmap AsciiImage = new Bitmap(400, 400);
-
+        
         static void Main(string[] args)
         {
             ImageProcessor im = new ImageProcessor();
             ImgurInterface imgur = new ImgurInterface();
-            
+          
             Console.WriteLine(im.AverageRgb(84, 209));
             im.DrawAsciiImage();
             
             im.AsciiImage.Save("C:/users/joe reynolds/desktop/result.bmp");
+            Process.Start(imgur.UploadImage("SomeImage"));
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -40,6 +43,15 @@ namespace ConsoleApplication2
             var col = image.GetPixel(x, y);
             int average = (col.R + col.G + col.B) / 3;
             return average;
+        }
+
+
+        /// <summary>
+        /// Saves an image from a specified URL
+        /// </summary>
+        void SaveLinkedImage(string url)
+        {
+
         }
 
         /// <summary>
