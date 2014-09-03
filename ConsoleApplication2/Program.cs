@@ -8,7 +8,6 @@ using System.Net;
 using System.Diagnostics;
 
 /* To Do
- * Use a switch statement instead of a long if-else chain
  * Document the methods
  * Allow the image to be declared in the constructor 
  * 
@@ -24,7 +23,7 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             ImageProcessor im = new ImageProcessor();
-            ImgurInterface imgur = new ImgurInterface();
+            ImgurAccess imgur = new ImgurAccess();
           
             Console.WriteLine(im.AverageRgb(84, 209));
             im.DrawAsciiImage();
