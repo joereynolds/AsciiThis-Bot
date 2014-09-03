@@ -32,7 +32,6 @@ namespace ConsoleApplication2
 
             while (true)
             {
-
                 reddit.ListenForPrompt();
             }
         }

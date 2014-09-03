@@ -1,6 +1,7 @@
 ﻿--Bugs--
 
-* Only replies to the first comment in a thread
+* Only replies to the first comment in a thread - This is because new users cannot post comments very quickly and helps reduce spam
+Sleep the bot for a few minutes/seconds and continue.
 
 --Improvements--
 
