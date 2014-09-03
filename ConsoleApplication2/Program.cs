@@ -17,15 +17,17 @@ namespace ConsoleApplication2
 {
     class ImageProcessor
     {
-        Bitmap image = new Bitmap("C:/users/joe reynolds/desktop/test.jpg");
+        Bitmap image = new Bitmap("C:/users/joe reynolds/desktop/test1.jpg");
         Bitmap AsciiImage = new Bitmap(400, 400);
 
         static void Main(string[] args)
         {
             ImageProcessor im = new ImageProcessor();
-
+            ImgurInterface imgur = new ImgurInterface();
+            
             Console.WriteLine(im.AverageRgb(84, 209));
             im.DrawAsciiImage();
+            
             im.AsciiImage.Save("C:/users/joe reynolds/desktop/result.bmp");
         }
 
