@@ -19,7 +19,7 @@ namespace ConsoleApplication2
 {
     class ImgurAccess
     {
-        string clientId = "CLIENTID";
+        string clientId = "CLIENT ID";
         string clientSecret = "CLIENTSECRET";
 
 
