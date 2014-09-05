@@ -1,1 +1,5 @@
-A very rough redo of my old program in Python, the Image-To-Ascii converter.
+This is an improved C# version of my Image-To-ASCII program in Python. 
+
+To prompt the bot, enter the following text (without quotes)
+
+"hello ascii! http:yourlinktoimage"
