@@ -12,6 +12,7 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             RedditAccess reddit = new RedditAccess();
+            
             //ImgurAccess imgur = new ImgurAccess();
             //ImageProcessor im = new ImageProcessor("c:/users/joe reynolds/desktop/test5.jpg");
             //im.DrawAsciiImage();
@@ -19,7 +20,7 @@ namespace ConsoleApplication2
         
             while (true)
             {
-               reddit.ListenForPrompt();
+             reddit.ListenForPrompt();
             }
         }
     }

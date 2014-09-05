@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Threading;
 using RedditSharp;
 using System.IO;
-using System.Diagnostics;
 using System.Net;
 
 namespace ConsoleApplication2
@@ -15,15 +14,14 @@ namespace ConsoleApplication2
     {
         private Reddit reddit = new Reddit();
         private List<string> commentIds = new List<string>();
-
         private ImgurAccess imgur = new ImgurAccess();
-
-
+        private string commentIdFilePath = "c:/users/joe reynolds/desktop/idlist.txt";
+        
         /// <summary>
         /// Logs a user in and then returns True if 
         /// the login was successful
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Boolean</returns>
         private bool HasLoggedIn(string username,string password)
         {
             try
@@ -38,18 +36,25 @@ namespace ConsoleApplication2
             }
         }
 
-        private void WriteListToFile(List<String> list)
+        private void AddIdToList(string commentId)
         {
-            StreamWriter file = new StreamWriter("c:/users/joe reynolds/desktop/idlist.txt");
-            foreach (string commentid in list)
+            if (!commentIds.Contains(commentId))
             {
-                if (!file.ToString().Contains(commentid))
+                commentIds.Add(commentId);
+            }
+        }
+
+        private void WriteIdsToFile()
+        {
+            using (StreamWriter file = new StreamWriter(commentIdFilePath))
+            {
+                foreach (string commentId in commentIds)
                 {
-                    file.Write(" " +commentid);
+                    file.Write(" {0}",commentId);
                 }
             }
-            file.Close();
         }
+
 
         /// <summary>
         /// Waits until a certain sentence is posted
@@ -57,46 +62,45 @@ namespace ConsoleApplication2
         /// </summary>
         public void ListenForPrompt()
         {
-            if (!HasLoggedIn("AsciiThis", "password"))
+            if (!HasLoggedIn("AsciiThis", "thisisjustapassword"))
             {
                 return;
             }
 
-            var subreddit = reddit.GetSubreddit("/r/pics");
+            var subreddit = reddit.GetSubreddit("/r/learnprogramming");
 
             foreach (var post in subreddit.New.Take(25))
             {
-                Console.WriteLine("==========================");
-                Console.WriteLine("THREAD NAME: {0}",post.Title);
-
+                Console.WriteLine("THREAD : {0}", post.Title);
                 string url;
-
                 try
                 {
                     foreach (var comment in post.Comments)
                     {
-                        Console.WriteLine("comment body: {0}", comment.Body);
                         if (!commentIds.Contains(comment.Id) && comment.Body.Contains("hello ascii! "))
                         {
                             using (WebClient client = new WebClient())
                             {
+                                Console.WriteLine(comment.Body);
                                 url = comment.Body.Substring(comment.Body.IndexOf("!")+2);
                                 string filename = @"C:/users/joe reynolds/desktop/image.jpg";
 
                                 ImageProcessor im = new ImageProcessor(filename);
-                                
+                               
                                 client.DownloadFile(url,filename);
-                                //Console.WriteLine(url);
-                                commentIds.Add(comment.Id);
-                                WriteListToFile(commentIds);
                                 im.DrawAsciiImage();
 
-                                comment.Reply(imgur.UploadImage("c:/users/joe reynolds/desktop/result.jpg") + System.Environment.NewLine  + " ^I ^am ^a ^bot. ^I'm ^still ^being ^tested. ^Im ^very ^unreliable ^at ^^the ^^^moment"); 
-                                                                 //+System.Environment.NewLine +  "[^source ^code](https://github.com/JoeReynolds1/AsciiThis-Bot)");
-                                Console.WriteLine("Replied to message");
-                                //File.Delete(im.fpath);
-                                //Console.WriteLine("Removed file from machine");
-                                Thread.Sleep(600000);
+                                comment.Reply(imgur.UploadImage("c:/users/joe reynolds/desktop/result.jpg") + System.Environment.NewLine  
+                                                                + " ^I ^am ^a ^bot. ^I'm ^still ^being ^tested. ^Im ^very ^unreliable ^at ^^the ^^^moment");
+                                AddIdToList(comment.Id);
+                                WriteIdsToFile();
+
+                                //                                 //+System.Environment.NewLine +  "[^source ^code](https://github.com/JoeReynolds1/AsciiThis-Bot)");
+                                Console.WriteLine("replied to message");
+                                //Thread.Sleep(600000);
+                                Console.WriteLine("Sleeping...");
+                                Thread.Sleep(5000);
+
                             }
                         }
                     }

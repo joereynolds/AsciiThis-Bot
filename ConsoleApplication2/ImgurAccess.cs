@@ -9,17 +9,11 @@ using System.Net;
 using System.IO;
 
 
-/* ImgurInterface should be able to do the following at very least;
- * Upload an image
- * Obtain the link for an image 
- * Return an image for use in other classes
- * Save an image to desktop
- */
 namespace ConsoleApplication2
 {
     class ImgurAccess
     {
-        string clientId = "CLIENT ID";
+        string clientId = "ppp";
         string clientSecret = "CLIENTSECRET";
 
 
