@@ -12,11 +12,6 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             RedditAccess reddit = new RedditAccess();
-            
-            //ImgurAccess imgur = new ImgurAccess();
-            //ImageProcessor im = new ImageProcessor("c:/users/joe reynolds/desktop/test5.jpg");
-            //im.DrawAsciiImage();
-            //Process.Start(imgur.UploadImage("c:/users/joe reynolds/desktop/result.jpg"));
         
             while (true)
             {
