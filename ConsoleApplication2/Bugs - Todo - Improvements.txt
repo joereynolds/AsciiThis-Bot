@@ -1,8 +1,0 @@
-﻿--Bugs--
-* put all comment id's in a text file or something similar. Putting them in a list means that everytime an 
-instance is created, the list is reset.
---Improvements--
-
---ToDo--
-* Have a separate method that checks to see if the bot is already logged in. This will save relogging in all the time
-* Document some of that redditsharp code, it's pretty vague at times
