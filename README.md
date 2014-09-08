@@ -9,12 +9,11 @@ The idea for this spawned from the similar smaller program written in Python. Th
 <table bgcolor="#00000F">
     <tbody>
         <tr>	
-            <th>Title</th>
+            <th>Envoking the bot</th>
             <th>Register</th>
             <th>Select</th></tr>
         <tr>           
             <td><img src="http://i.imgur.com/lAKqxex.png" width="200" height="120"/></a></td>
-            <td><a href="http://i1192.photobucket.com/albums/aa340/Mekire/Cabbages/02-register.png~original"><img src="http://i1192.photobucket.com/albums/aa340/Mekire/Cabbages/02-register.png~original" width="200" height="120"/></a></td>
-            <td><a href="http://i1192.photobucket.com/albums/aa340/Mekire/Cabbages/03-select.png~original"><img src="http://i1192.photobucket.com/albums/aa340/Mekire/Cabbages/03-select.png~original" width="200" height="120"/></a></td></tr>
-
+            <td><img src="http://i.imgur.com/NHQcHwV.gif" width="200" height="120"/></a></td>
+            <td><img src="http://i.imgur.com/jJk2TTR.png" width="200" height="120"/></a></td></tr>
     </tbody></table>
