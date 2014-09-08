@@ -7,7 +7,7 @@ The idea for this spawned from the similar smaller program written in Python. Th
 #####Envoking the bot
 <img src="http://i.imgur.com/lAKqxex.png">
 #####The image given to the bot
-<img src="http://i.imgur.com/NHQcHwV.gif" width="200" height="120"/>
+<img src="http://i.imgur.com/NHQcHwV.gif"
 #####The image outputted by the bot
-<img src="http://i.imgur.com/jJk2TTR.png" width="200" height="120"/>
+<img src="http://i.imgur.com/jJk2TTR.png"
 
