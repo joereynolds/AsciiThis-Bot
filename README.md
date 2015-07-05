@@ -10,6 +10,3 @@ The idea for this spawned from the similar smaller program in Python that I had 
 <img src="http://i.imgur.com/NHQcHwV.gif">
 #####The image outputted by the bot
 <img src="http://i.imgur.com/jJk2TTR.png">
-
-
-~~yes~~
