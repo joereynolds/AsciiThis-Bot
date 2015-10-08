@@ -15,7 +15,8 @@ namespace ConsoleApplication2
         
             while (true)
             {
-             reddit.ListenForPrompt();
+                string outputFilePath = @"C:/users/joe reynolds/desktop/result.jpg";
+                reddit.ListenForPrompt(outputFilePath);
             }
         }
     }

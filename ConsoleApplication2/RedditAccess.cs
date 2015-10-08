@@ -59,7 +59,7 @@ namespace ConsoleApplication2
         /// Waits until a certain sentence is posted
         /// and then will reply with a message
         /// </summary>
-        public void ListenForPrompt()
+        public void ListenForPrompt(string ResultFileFullPath)
         {
             if (!HasLoggedIn("AsciiThis", "thisisjustapassword"))
             {
@@ -84,7 +84,7 @@ namespace ConsoleApplication2
                                 string filename = @"C:/users/joe reynolds/desktop/image.jpg";
                                 ImageProcessor im = new ImageProcessor(filename);
                                 client.DownloadFile(url,filename);
-                                im.DrawAsciiImage();
+                                im.DrawAsciiImage(ResultFileFullPath);
                                 comment.Reply(imgur.UploadImage("c:/users/joe reynolds/desktop/result.jpg") + System.Environment.NewLine  
                                                                 + " ^I ^am ^a ^bot. ^I'm ^still ^being ^tested. ^Im ^very ^unreliable ^at ^^the ^^^moment");
                                 AddIdToList(comment.Id);

@@ -45,7 +45,7 @@ namespace ConsoleApplication2
         /// with the image file path string.
         /// </summary>
         /// 
-        public void DrawAsciiImage()
+        public void DrawAsciiImage(string ResultFileFullPath)
         {
             Bitmap image = new Bitmap(this.fpath);
             Bitmap AsciiImage = new Bitmap(image.Width, image.Height);
@@ -95,7 +95,7 @@ namespace ConsoleApplication2
                     }
                 }
             }
-            AsciiImage.Save("C:/users/joe reynolds/desktop/result.jpg");
+            AsciiImage.Save(ResultFileFullPath);
         }
     }
 }
